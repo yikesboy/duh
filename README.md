@@ -7,6 +7,7 @@ dependencies are curl & jq for fetching and parsing the json data from the disco
 
 ### install
 ```
+sudo pacman -S jq
 chmod +x intall.sh
 sudo ./install.sh
 ```
