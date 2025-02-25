@@ -5,8 +5,16 @@ SCRIPT_NAME="discord-update-helper.sh"
 INSTALL_PATH="/usr/local/bin"
 SERVICE_PATH="/etc/systemd/system"
 
+RED='\033[0;31m'
+NC='\033[0m'
+
+if ! command -v jq &> /dev/null; then
+    echo -e "${RED}Error: 'jq' command not found. This is required for the Discord update helper.${NC}"
+    exit 1
+fi
+
 if [[ ! -f "./$SCRIPT_NAME" ]]; then
-  echo "Error: $SCRIPT_NAME not found in the current directory."
+  echo -e "${RED}Error: $SCRIPT_NAME not found in the current directory.${NC}"
   exit 1
 fi
 
